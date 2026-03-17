@@ -24,7 +24,15 @@ if (isClient) {
   );
 
   if (isProduction) {
-    hydrateRoot(container, app, { onRecoverableError: () => {} });
+    hydrateRoot(container, app, {
+      onRecoverableError: (error) => {
+        console.error("Hydration error:", error);
+        // Optional: Send to error tracking
+        if (window.Sentry) {
+          window.Sentry.captureException(error);
+        }
+      },
+    });
   } else {
     const root = createRoot(container);
     root.render(app);
