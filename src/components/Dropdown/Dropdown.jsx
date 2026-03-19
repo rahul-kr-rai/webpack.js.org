@@ -47,8 +47,8 @@ export default class Dropdown extends Component {
       <nav
         className={`dropdown ${className}`}
         ref={(el) => (this.dropdown = el)}
-        onMouseOver={() => this._toggle(true)}
-        onMouseLeave={() => this._toggle(false)}
+        onMouseOver={this._handleMouseOver}
+        onMouseLeave={this._handleMouseLeave}
       >
         <button
           ref={(el) => (this.dropdownButton = el)}
@@ -145,14 +145,11 @@ export default class Dropdown extends Component {
     });
   };
 
-  /**
-   * Toggle visibility of dropdown items
-   *
-   * @param {boolean} state - Whether to display or hide the items
-   */
-  _toggle = (state = false) => {
-    this.setState({
-      active: state,
-    });
+  _handleMouseOver = () => {
+    this.setState({ active: true });
+  };
+
+  _handleMouseLeave = () => {
+    this.setState({ active: false });
   };
 }
