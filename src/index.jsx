@@ -27,10 +27,6 @@ if (isClient) {
     hydrateRoot(container, app, {
       onRecoverableError: (error) => {
         console.error("Hydration error:", error);
-        // Optional: Send to error tracking
-        if (window.Sentry) {
-          window.Sentry.captureException(error);
-        }
       },
     });
   } else {
