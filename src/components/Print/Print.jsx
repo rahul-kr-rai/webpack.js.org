@@ -46,11 +46,7 @@ export default function Print(props) {
         target="_blank"
       >
         Print Section
-        <img
-          src={icon}
-          alt="Printer Icon"
-          className="h-[20px] w-[27px] mr-[2px] shrink-0"
-        />
+        <img src={icon} alt="Printer Icon" className="h-[20px] w-[27px]" />
       </a>
     </div>
   );
