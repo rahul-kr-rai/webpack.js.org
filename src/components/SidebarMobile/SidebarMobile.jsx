@@ -20,15 +20,16 @@ export default class SidebarMobile extends Component {
 
   render() {
     const { isOpen, toggle } = this.props;
-    const openMod = isOpen
-      ? " sidebar-mobile--visible translate-x-0"
-      : " [transform:translate3d(calc(-100%+5px),0,0)]";
-
     this._toggleBodyListener(isOpen);
 
     return (
       <nav
-        className={`sidebar-mobile fixed w-[300px] h-screen z-[100] top-0 overflow-y-auto overflow-x-hidden [-webkit-overflow-scrolling:touch] transition-transform duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] md:hidden${openMod}`}
+        className={clsx(
+          "sidebar-mobile fixed w-[300px] h-screen z-[100] top-0 overflow-y-auto overflow-x-hidden [-webkit-overflow-scrolling:touch] transition-transform duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] md:hidden",
+          isOpen
+            ? "sidebar-mobile--visible translate-x-0"
+            : "[transform:translate3d(calc(-100%+5px),0,0)]",
+        )}
         ref={(ref) => (this._container = ref)}
         onTouchStart={this._handleTouchStart}
         onTouchMove={this._handleTouchMove}
