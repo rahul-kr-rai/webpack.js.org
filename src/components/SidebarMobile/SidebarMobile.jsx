@@ -1,3 +1,4 @@
+import { clsx } from "clsx";
 import PropTypes from "prop-types";
 import { Component } from "react";
 import CloseIcon from "../../styles/icons/cross.svg";
@@ -34,7 +35,10 @@ export default class SidebarMobile extends Component {
         onTouchEnd={this._handleTouchEnd}
       >
         <div
-          className={`absolute top-[45px] bottom-0 w-[32px] left-[285px] ${isOpen ? "hidden" : ""}`}
+          className={clsx(
+            "absolute top-[45px] bottom-0 w-[32px] left-[285px]",
+            isOpen && "hidden",
+          )}
           onTouchStart={this._handleTouchStart}
           onTouchMove={this._handleOpenerTouchMove}
           onTouchEnd={this._handleTouchEnd}
