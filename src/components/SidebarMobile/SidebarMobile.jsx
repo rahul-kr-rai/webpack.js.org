@@ -83,15 +83,18 @@ export default class SidebarMobile extends Component {
 
       return (
         <div
-          className={`border-l-2 pb-[0.5em] ${
-            active ? "border-blue-200" : "border-transparent"
-          }`}
+          className={clsx(
+            "border-l-2 pb-[0.5em]",
+            active ? "border-blue-200" : "border-transparent",
+          )}
           key={section.url}
         >
           <Link
-            className={`uppercase pt-[0.75em] px-4 pb-[0.25em] font-semibold block text-[1.1rem] ${
-              active ? "text-[#465E69]" : "text-[#2B3A42]"
-            } ${index > 0 ? "border-t border-gray-200" : ""}`}
+            className={clsx(
+              "uppercase pt-[0.75em] px-4 pb-[0.25em] font-semibold block text-[1.1rem]",
+              active ? "text-[#465E69]" : "text-[#2B3A42]",
+              index > 0 && "border-t border-gray-200",
+            )}
             key={section.url}
             to={section.url}
             onClick={this.props.toggle.bind(null, false)}
@@ -125,11 +128,12 @@ export default class SidebarMobile extends Component {
       return (
         <Link
           key={url}
-          className={`block py-[0.5em] px-[17px] capitalize [-webkit-tap-highlight-color:transparent] ml-[20px] ${
+          className={clsx(
+            "block py-[0.5em] px-[17px] capitalize [-webkit-tap-highlight-color:transparent] ml-[20px]",
             active
               ? "text-gray-900 font-semibold bg-[#f1f4f4]"
-              : "text-gray-600 hover:text-gray-600 active:text-gray-900 active:font-semibold active:bg-[#f1f4f4]"
-          }`}
+              : "text-gray-600 hover:text-gray-600 active:text-gray-900 active:font-semibold active:bg-[#f1f4f4]",
+          )}
           to={url}
           onClick={this.props.toggle.bind(null, false)}
         >
