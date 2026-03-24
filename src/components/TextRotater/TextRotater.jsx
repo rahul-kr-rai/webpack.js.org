@@ -1,4 +1,4 @@
-// Import External Dependencies
+import { clsx } from "clsx";
 import PropTypes from "prop-types";
 import { Children, PureComponent, cloneElement } from "react";
 
@@ -49,9 +49,10 @@ export default class TextRotater extends PureComponent {
         "
       >
         <div
-          className={`inline-flex flex-col text-left ${
-            isAnimating ? "text-rotater--slide-up" : ""
-          }`}
+          className={clsx(
+            "inline-flex flex-col text-left",
+            isAnimating && "text-rotater--slide-up",
+          )}
           onTransitionEnd={this._handleTransitionEnd}
           style={{ height: contentHeight, width: maxWidth }}
         >
